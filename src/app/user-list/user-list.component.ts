@@ -68,7 +68,6 @@ export class User implements IUsers{
     this.login = uLogin;
     this.password = uPassword;
     this.email = uEmail;
-
   }
 }
 
