@@ -1,0 +1,39 @@
+<div class="userList" >
+    <form name="new">
+        <p>Login</p>
+        <input type="text" placeholder="Enter Login" name="login"
+        [(ngModel)]="login">
+        <p>Password</p>
+        <input type="password" placeholder="Enter Password" name="pass"
+        [(ngModel)]="pass">
+        <p>Email Adress</p>
+        <input type="text" placeholder="Email Adress" name="email"
+        [(ngModel)]="email">
+        <button type="button" class="btn-add-user" (click)="addUser()" *ngIf="save">Add user</button>
+        <button type="button" class="save-user" *ngIf="!save" class="btn btn-primary" (click)="saveUser()" >Save user</button>
+    </form>
+    <div class="ulist" >
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Login</th>
+            <th scope="col">Password</th>
+            <th scope="col">Email</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of newUsers; let i=index">
+                <td> {{i+1 }} </td>
+                <td> {{user.login}}</td>
+                <td> {{user.password}}</td>
+                <td> {{user.email}}</td>
+                <td><button class="btn btn-warning" (click)="editUser(i)" >Edit</button></td>
+                <td><button class="btn btn-danger" (click)="deleteUser(i)" [disabled]="!save" >Delete</button></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
